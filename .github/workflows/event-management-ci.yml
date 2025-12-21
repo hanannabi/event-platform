@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - "event_management/**"
+      - "event-management/**"
 
 jobs:
   build-and-push:
@@ -25,7 +25,7 @@ jobs:
 
       # 3️⃣ Build JAR (optional but recommended)
       - name: Build with Maven
-        working-directory: event_management
+        working-directory: event-management
         run: mvn clean package -DskipTests
 
       # 4️⃣ Login to Docker Hub
@@ -39,7 +39,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: event_management
+          context: event-management
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/event-management:latest
