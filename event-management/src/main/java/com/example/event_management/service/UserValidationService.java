@@ -16,7 +16,7 @@ public class UserValidationService {
         this.userClient = userClient;
     }
 
-    //apply resilience4j to feign call
+    //apply resilience4j to feign call to handle fallbacks and retries
 
     @CircuitBreaker(name = "userService", fallbackMethod = "userFallback")
     @Retry(name = "userService")

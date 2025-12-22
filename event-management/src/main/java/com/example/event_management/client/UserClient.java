@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 //FeignClient / RestTemplate make calls.
 //Resilience4j protects those calls.
 
-@FeignClient(name = "user-service", url = "http://localhost:8082")
+@FeignClient(name = "user-service", url = "${user-service.url}")
 public interface UserClient {
 
     @GetMapping("/users/{id}")
